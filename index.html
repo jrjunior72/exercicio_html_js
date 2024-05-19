@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Formulário</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Roboto&display=swap" rel="stylesheet">
+
+    <style>
+        /* Estilos opcionais para o formulário */
+        body {
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Pratica de Html com Js</h1>
+        </div>
+    </header>
+    <section id="description">
+        <p>
+            O formulário HTML que possua dois campos numéricos, campo A e campo B, com um botão para validar o formulário com JavaScript, na qual o formulário será válido caso o número B seja maior que o número A, e exibe uma mensagem positiva para o usuário quando o formulário for válido e uma mensagem negativa quando for inválido.
+        </p>
+    </section>
+    <section>
+        <form id="myForm">
+            <label for="campoA">Campo A:</label>
+            <input type="number" id="campoA" name="campoA" required>
+            <br>
+            <label for="campoB">Campo B:</label>
+            <input type="number" id="campoB" name="campoB" required>
+            <br>
+            <button type="submit">Verificar</button>
+        </form>
+    </section>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+
+            const campoA = parseFloat(document.getElementById("campoA").value);
+            const campoB = parseFloat(document.getElementById("campoB").value);
+
+            if (campoB > campoA) {
+                alert("Formulário válido! B é maior que A.");
+            } else {
+                alert("Formulário inválido! B deve ser maior que A.");
+            }
+        });
+    </script>
+</body>
+</html>
